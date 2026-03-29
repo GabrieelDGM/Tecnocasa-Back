@@ -2,7 +2,11 @@ package com.proyectofinalback.entities;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -65,6 +69,5 @@ public class Usuarios {
     @PrePersist
     protected void onCreate() {
         this.fechaRegistro = new java.sql.Timestamp(System.currentTimeMillis());
-    
-}
+    }
 }

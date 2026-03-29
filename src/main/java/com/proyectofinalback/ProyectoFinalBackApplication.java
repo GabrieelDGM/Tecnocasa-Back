@@ -1,4 +1,5 @@
-package com.proyectofinalback.ProyectoFinalBack;
+package com.proyectofinalback;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
