@@ -1,5 +1,7 @@
 package com.proyectofinalback.entities;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -9,11 +11,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
+@Builder
 @Table(name = "propiedades")
 public class Propiedades {
     @Id
@@ -31,7 +39,7 @@ public class Propiedades {
     private String descripcion;
 
     @Column(nullable = false, precision = 10, scale = 2)
-    private Double precio;
+    private BigDecimal precio;
 
     @Column(columnDefinition = "TEXT")
     private String detalles;
@@ -42,4 +50,3 @@ public class Propiedades {
     @Column(name = "ubicacion_google", nullable = false, length = 500)
     private String ubicacionGoogle;
 }
-
