@@ -16,7 +16,9 @@ import com.proyectofinalback.entities.TipoRol;
 import com.proyectofinalback.mapper.EmpleadoMapper;
 import com.proyectofinalback.service.EmpleadoService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
 
 @RestController
 @RequestMapping("/api/empleados")
