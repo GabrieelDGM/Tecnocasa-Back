@@ -9,9 +9,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.Data;
 import jakarta.persistence.Table;
 
 @Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "empleados")
