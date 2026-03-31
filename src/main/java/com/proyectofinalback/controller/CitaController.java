@@ -5,36 +5,35 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.proyectofinalback.dto.request.CitaRequestDto;
+import com.proyectofinalback.dto.response.CitaResponseDto;
 import com.proyectofinalback.entities.Cita;
+import com.proyectofinalback.entities.Propiedades;
+import com.proyectofinalback.mapper.CitaMapper;
+import com.proyectofinalback.repository.PropiedadesRepository;
 import com.proyectofinalback.service.CitaService;
+
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/citas")
+@RequiredArgsConstructor
 public class CitaController {
 
     private final CitaService citaService;
 
-    public CitaController(CitaService citaService) {
-        this.citaService = citaService;
-    }
-
     @PostMapping
-    public ResponseEntity<Cita> crearCita(@RequestBody Cita cita) {
-        return ResponseEntity.ok(citaService.creaCita(cita));
+    public ResponseEntity<CitaResponseDto> crearCita(@RequestBody CitaRequestDto dto) {
+        return ResponseEntity.ok(citaService.crear(dto));
     }
 
-    @GetMapping
-    public ResponseEntity<List<Cita>> listarCitas() {
-        return ResponseEntity.ok(citaService.listaCitas());
+    @GetMapping("/gestor/{empleadoId}")
+    public ResponseEntity<List<CitaResponseDto>> listarPorGestor(@PathVariable Long empleadoId) {
+        return ResponseEntity.ok(citaService.listarPorGestor(empleadoId));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Cita> obtenerPorId(@PathVariable Long id) {
-        Cita cita = citaService.obtenerPorId(id);
-        if (cita != null) {
-            return ResponseEntity.ok(cita);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<CitaResponseDto> obtenerPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(citaService.obtenerPorId(id));
     }
 }

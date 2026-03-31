@@ -22,4 +22,6 @@ public interface EmpleadoService {
 
     List<Empleados> listarPorRol(TipoRol rol);
     List<Empleados> buscarPorRol(TipoRol rol);
+
+    
 }
