@@ -3,6 +3,7 @@ package com.proyectofinalback.mapper;
 import org.springframework.stereotype.Component;
 
 import com.proyectofinalback.dto.request.UsuarioRequestDto;
+import com.proyectofinalback.dto.response.UsuarioLoginResponseDto;
 import com.proyectofinalback.dto.response.UsuarioResponseDto;
 import com.proyectofinalback.entities.Usuarios;
 
@@ -44,4 +45,15 @@ public class UsuarioMapper {
     public UsuarioResponseDto toDto(Usuarios usuario) {
         return toResponse(usuario);
     }
+
+    public UsuarioLoginResponseDto toLoginDto(Usuarios usuario) {
+        UsuarioLoginResponseDto dto = new UsuarioLoginResponseDto();
+        dto.setId(usuario.getId());
+        dto.setUsuario(usuario.getUsuario());
+        dto.setNombre(usuario.getNombre());
+        dto.setApellido(usuario.getApellido());
+        dto.setCorreo(usuario.getCorreo());
+        return dto;
+    }
+
 }

@@ -1,10 +1,13 @@
 package com.proyectofinalback.service.impl;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.proyectofinalback.dto.request.UsuarioLoginRequestDto;
 import com.proyectofinalback.dto.request.UsuarioRequestDto;
+import com.proyectofinalback.dto.response.UsuarioLoginResponseDto;
 import com.proyectofinalback.dto.response.UsuarioResponseDto;
 import com.proyectofinalback.entities.Usuarios;
 import com.proyectofinalback.mapper.UsuarioMapper;
@@ -42,6 +45,7 @@ public class UsuarioServiceImpl implements UsuarioService {
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
         return mapper.toDto(usuario);
     }
+
     @Override
     public UsuarioResponseDto buscarPorUsuario(String usuario) {
         Usuarios usuarioEncontrado = repository.findByUsuario(usuario)
@@ -62,4 +66,18 @@ public class UsuarioServiceImpl implements UsuarioService {
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
         return mapper.toDto(usuarioEncontrado);
     }
+
+    @Override
+    public UsuarioLoginResponseDto login(UsuarioLoginRequestDto loginDto) {
+
+        Usuarios usuario = repository.findByUsuario(loginDto.getUsuario())
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        if (!usuario.getContrasena().equals(loginDto.getContrasena())) {
+            throw new RuntimeException("Contraseña incorrecta");
+        }
+
+        return mapper.toLoginDto(usuario);
+    }
+
 }
