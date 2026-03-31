@@ -1,6 +1,7 @@
 package com.proyectofinalback.dto.response;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,5 +23,7 @@ public class PropiedadResponseDto {
     private String detalles;
     private String ciudad;
     private String ubicacionGoogle;
+    private List<String> imagenes;
+
 
 }

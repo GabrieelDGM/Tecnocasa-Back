@@ -3,6 +3,7 @@ package com.proyectofinalback.mapper;
 import com.proyectofinalback.dto.request.PropiedadRequestDto;
 import com.proyectofinalback.dto.response.PropiedadResponseDto;
 import com.proyectofinalback.entities.Propiedades;
+import com.proyectofinalback.entities.PropiedadImagen;
 import com.proyectofinalback.entities.TipoPropiedad;
 
 public class PropiedadesMapper {
@@ -29,6 +30,15 @@ public class PropiedadesMapper {
         dto.setDetalles(propiedad.getDetalles());
         dto.setCiudad(propiedad.getCiudad());
         dto.setUbicacionGoogle(propiedad.getUbicacionGoogle());
+
+        if (propiedad.getImagenes() != null) {
+            dto.setImagenes(
+                    propiedad.getImagenes()
+                            .stream()
+                            .map(PropiedadImagen::getUrl)
+                            .toList());
+        }
+
         return dto;
     }
 }
