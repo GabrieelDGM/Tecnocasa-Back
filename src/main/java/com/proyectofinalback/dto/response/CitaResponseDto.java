@@ -13,4 +13,5 @@ public class CitaResponseDto {
     private Long propiedadId;
     private String propiedadTitulo;
     private String tipoPropiedad; 
+    private Long usuarioId;
 }

@@ -8,6 +8,7 @@ import com.proyectofinalback.mapper.CitaMapper;
 import com.proyectofinalback.repository.CitaRepository;
 import com.proyectofinalback.repository.EmpleadoRepository;
 import com.proyectofinalback.repository.PropiedadesRepository;
+import com.proyectofinalback.repository.UsuarioRepository;
 import com.proyectofinalback.service.CitaService;
 
 import lombok.RequiredArgsConstructor;
@@ -22,16 +23,24 @@ public class CitaServiceImpl implements CitaService {
     private final CitaRepository citaRepo;
     private final PropiedadesRepository propiedadesRepo;
     private final EmpleadoRepository empleadoRepo;
+    private final UsuarioRepository usuarioRepo;
 
-    @Override
-    public CitaResponseDto crear(CitaRequestDto dto) {
-        var propiedad = propiedadesRepo.findById(dto.getPropiedadId())
-                .orElseThrow(() -> new RuntimeException("Propiedad no encontrada"));
+   @Override
+public CitaResponseDto crear(CitaRequestDto dto) {
+    if (dto.getUsuarioId() == null) {
+        throw new RuntimeException("Debes iniciar sesión para agendar una cita");
+    }
 
-        var cita = CitaMapper.toEntity(dto, propiedad);
-        citaRepo.save(cita);
+    var usuario = usuarioRepo.findById(dto.getUsuarioId())
+            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
-        return CitaMapper.toDto(cita);
+    var propiedad = propiedadesRepo.findById(dto.getPropiedadId())
+            .orElseThrow(() -> new RuntimeException("Propiedad no encontrada"));
+
+    var cita = CitaMapper.toEntity(dto, propiedad, usuario);
+    citaRepo.save(cita);
+
+    return CitaMapper.toDto(cita);
     }
 
     @Override

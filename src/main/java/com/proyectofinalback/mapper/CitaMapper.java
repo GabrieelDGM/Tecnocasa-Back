@@ -4,10 +4,11 @@ import com.proyectofinalback.dto.request.CitaRequestDto;
 import com.proyectofinalback.dto.response.CitaResponseDto;
 import com.proyectofinalback.entities.Cita;
 import com.proyectofinalback.entities.Propiedades;
+import com.proyectofinalback.entities.Usuarios;
 
 public class CitaMapper {
 
-    public static Cita toEntity(CitaRequestDto dto, Propiedades propiedad) {
+    public static Cita toEntity(CitaRequestDto dto, Propiedades propiedad, Usuarios usuario) {
         return Cita.builder()
                 .nombre(dto.getNombre())
                 .apellido(dto.getApellido())
@@ -15,6 +16,7 @@ public class CitaMapper {
                 .telefono(dto.getTelefono())
                 .motivo(dto.getMotivo())
                 .propiedad(propiedad)
+                .usuario(usuario)
                 .build();
     }
 
@@ -29,6 +31,7 @@ public class CitaMapper {
         dto.setPropiedadId(cita.getPropiedad().getId());
         dto.setPropiedadTitulo(cita.getPropiedad().getTitulo());
         dto.setTipoPropiedad(cita.getPropiedad().getTipo().name());
+        dto.setUsuarioId(cita.getUsuario().getId());
         return dto;
     }
 }

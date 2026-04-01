@@ -10,4 +10,6 @@ public class CitaRequestDto {
     private String telefono;
     private String motivo;
     private Long propiedadId;
+    private Long usuarioId;
+
 }

@@ -44,4 +44,9 @@ public class Cita {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "propiedad_id", nullable = false)
     private Propiedades propiedad;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuarios usuario;
+
 }
