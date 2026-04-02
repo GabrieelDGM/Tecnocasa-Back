@@ -31,4 +31,16 @@ public class PropiedadesMapper {
         dto.setUbicacionGoogle(propiedad.getUbicacionGoogle());
         return dto;
     }
+
+    public static void updateEntity(Propiedades propiedad, PropiedadRequestDto dto) {
+
+        propiedad.setTipo(TipoPropiedad.valueOf(dto.getTipo().toUpperCase()));
+        propiedad.setTitulo(dto.getTitulo());
+        propiedad.setDescripcion(dto.getDescripcion());
+        propiedad.setPrecio(dto.getPrecio());
+        propiedad.setDetalles(dto.getDetalles());
+        propiedad.setCiudad(dto.getCiudad());
+        propiedad.setUbicacionGoogle(dto.getUbicacionGoogle());
+    }
+
 }
