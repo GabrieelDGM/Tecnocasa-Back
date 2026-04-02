@@ -16,5 +16,7 @@ public interface PropiedadesService {
 
     PropiedadResponseDto obtenerPorId(Long id);
 
+    PropiedadResponseDto actualizarPropiedad(Long id, PropiedadRequestDto dto);
+
     List<PropiedadResponseDto> buscar(String tipo, String ciudad, Double maxPrecio);
 }

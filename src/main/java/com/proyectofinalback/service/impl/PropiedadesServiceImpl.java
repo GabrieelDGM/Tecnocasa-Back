@@ -52,4 +52,17 @@ public class PropiedadesServiceImpl implements PropiedadesService {
                 .map(PropiedadesMapper::toDto)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public PropiedadResponseDto actualizarPropiedad(Long id, PropiedadRequestDto dto) {
+
+        Propiedades propiedad = repo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Propiedad no encontrada"));
+
+        PropiedadesMapper.updateEntity(propiedad, dto);
+
+        Propiedades guardada = repo.save(propiedad);
+
+        return PropiedadesMapper.toDto(guardada);
+    }
 }

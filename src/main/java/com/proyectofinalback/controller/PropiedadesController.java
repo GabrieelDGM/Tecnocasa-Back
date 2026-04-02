@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +15,6 @@ import com.proyectofinalback.dto.request.PropiedadRequestDto;
 import com.proyectofinalback.dto.response.PropiedadResponseDto;
 import com.proyectofinalback.service.PropiedadesService;
 import org.springframework.web.bind.annotation.RequestBody;
-
 
 import lombok.RequiredArgsConstructor;
 @CrossOrigin(origins = "*")
@@ -47,5 +47,13 @@ public class PropiedadesController {
             @RequestParam(required = false) Double maxPrecio) {
 
         return service.buscar(tipo, ciudad, maxPrecio);
+    }
+
+    @PutMapping("/{id}")
+    public PropiedadResponseDto actualizar(
+            @PathVariable Long id,
+            @RequestBody PropiedadRequestDto dto) {
+
+        return service.actualizarPropiedad(id, dto);
     }
 }
