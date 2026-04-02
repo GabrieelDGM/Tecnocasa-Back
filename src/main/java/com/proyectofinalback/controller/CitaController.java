@@ -14,9 +14,9 @@ import com.proyectofinalback.repository.PropiedadesRepository;
 import com.proyectofinalback.service.CitaService;
 
 import lombok.RequiredArgsConstructor;
-
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api/citas")
+@RequestMapping("/api/citas")   
 @RequiredArgsConstructor
 public class CitaController {
 

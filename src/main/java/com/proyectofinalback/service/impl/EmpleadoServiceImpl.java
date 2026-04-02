@@ -11,7 +11,7 @@ import com.proyectofinalback.service.EmpleadoService;
 
 @Service
 public class EmpleadoServiceImpl implements EmpleadoService {
-    
+
     private final EmpleadoRepository empleadoRepository;
 
     public EmpleadoServiceImpl(EmpleadoRepository empleadoRepository) {
@@ -35,7 +35,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 
     @Override
     public Empleados buscarPorUsaurio(String usuario) {
-        return empleadoRepository.findByUsuario(usuario); 
+        return empleadoRepository.findByUsuario(usuario);
     }
 
     @Override
@@ -52,6 +52,18 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     public List<Empleados> listarPorRol(TipoRol rol) {
         return empleadoRepository.findByRol(rol);
     }
-    
+
+    @Override
+    public Empleados login(String usuario, String contrasena) {
+        Empleados empleado = empleadoRepository.findByUsuario(usuario);
+
+        if (empleado == null)
+            return null;
+
+        if (!empleado.getContrasena().equals(contrasena))
+            return null;
+
+        return empleado;
+    }
 
 }

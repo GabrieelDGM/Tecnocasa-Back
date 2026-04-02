@@ -3,12 +3,14 @@ package com.proyectofinalback.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.proyectofinalback.dto.request.EmpleadoLoginRequestDto;
 import com.proyectofinalback.dto.request.EmpleadoRequestDto;
 import com.proyectofinalback.dto.response.EmpleadoResponseDto;
 import com.proyectofinalback.entities.Empleados;
@@ -18,8 +20,7 @@ import com.proyectofinalback.service.EmpleadoService;
 
 import org.springframework.web.bind.annotation.RequestBody;
 
-
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/empleados")
 public class EmpleadosController {
@@ -97,6 +98,19 @@ public class EmpleadosController {
                 .toList();
 
         return ResponseEntity.ok(lista);
+    }
+
+    // Login
+    @PostMapping("/login")
+    public ResponseEntity<EmpleadoResponseDto> login(@RequestBody EmpleadoLoginRequestDto request) {
+
+        Empleados empleado = empleadoService.login(request.getUsuario(), request.getContrasena());
+
+        if (empleado == null) {
+            return ResponseEntity.status(401).build();
+        }
+
+        return ResponseEntity.ok(empleadoMapper.toDto(empleado));
     }
 
 }
