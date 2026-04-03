@@ -46,7 +46,7 @@ public class Empleados {
     private TipoRol rol;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = true)
     private TipoPropiedad tipoGestor;
 
 }

@@ -16,4 +16,5 @@ public class EmpleadoResponseDto {
     private String telefono;
     private String usuario;
     private String rol;
+    private String tipoGestor; 
 }

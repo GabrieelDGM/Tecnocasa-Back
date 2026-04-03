@@ -31,6 +31,7 @@ public class EmpleadoMapper {
         dto.setEmail(empleado.getEmail());
         dto.setTelefono(empleado.getTelefono());
         dto.setRol(empleado.getRol().name());
+        dto.setTipoGestor(empleado.getTipoGestor() != null ? empleado.getTipoGestor().name() : null);
         return dto;
     }
 }
