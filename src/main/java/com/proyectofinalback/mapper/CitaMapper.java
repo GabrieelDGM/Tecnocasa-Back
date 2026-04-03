@@ -32,6 +32,8 @@ public class CitaMapper {
         dto.setPropiedadTitulo(cita.getPropiedad().getTitulo());
         dto.setTipoPropiedad(cita.getPropiedad().getTipo().name());
         dto.setUsuarioId(cita.getUsuario().getId());
+        dto.setEstado(cita.getEstado().name());
+
         return dto;
     }
 }

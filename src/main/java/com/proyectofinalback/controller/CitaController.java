@@ -7,14 +7,11 @@ import org.springframework.web.bind.annotation.*;
 
 import com.proyectofinalback.dto.request.CitaRequestDto;
 import com.proyectofinalback.dto.response.CitaResponseDto;
-import com.proyectofinalback.entities.Cita;
-import com.proyectofinalback.entities.Propiedades;
-import com.proyectofinalback.mapper.CitaMapper;
-import com.proyectofinalback.repository.PropiedadesRepository;
 import com.proyectofinalback.service.CitaService;
 
 import lombok.RequiredArgsConstructor;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/citas")
 @RequiredArgsConstructor
@@ -35,5 +32,16 @@ public class CitaController {
     @GetMapping("/{id}")
     public ResponseEntity<CitaResponseDto> obtenerPorId(@PathVariable Long id) {
         return ResponseEntity.ok(citaService.obtenerPorId(id));
+    }
+
+    @PutMapping("/{id}/confirmar")
+    public ResponseEntity<CitaResponseDto> confirmar(@PathVariable Long id) {
+        return ResponseEntity.ok(citaService.confirmar(id));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+        citaService.eliminar(id);
+        return ResponseEntity.noContent().build();
     }
 }
