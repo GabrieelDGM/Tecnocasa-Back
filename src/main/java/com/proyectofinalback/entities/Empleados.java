@@ -7,10 +7,10 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Data;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
@@ -44,5 +44,9 @@ public class Empleados {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private TipoRol rol;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private TipoPropiedad tipoGestor;
 
 }

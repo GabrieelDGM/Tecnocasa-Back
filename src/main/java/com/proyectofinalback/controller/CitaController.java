@@ -3,14 +3,18 @@ package com.proyectofinalback.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.proyectofinalback.dto.request.CitaRequestDto;
 import com.proyectofinalback.dto.response.CitaResponseDto;
-import com.proyectofinalback.entities.Cita;
-import com.proyectofinalback.entities.Propiedades;
-import com.proyectofinalback.mapper.CitaMapper;
-import com.proyectofinalback.repository.PropiedadesRepository;
 import com.proyectofinalback.service.CitaService;
 
 import lombok.RequiredArgsConstructor;
@@ -35,5 +39,16 @@ public class CitaController {
     @GetMapping("/{id}")
     public ResponseEntity<CitaResponseDto> obtenerPorId(@PathVariable Long id) {
         return ResponseEntity.ok(citaService.obtenerPorId(id));
+    }
+
+    @PutMapping("/{id}/confirmar")
+    public ResponseEntity<CitaResponseDto> confirmar(@PathVariable Long id) {
+        return ResponseEntity.ok(citaService.confirmar(id));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+        citaService.eliminar(id);
+        return ResponseEntity.noContent().build();
     }
 }
