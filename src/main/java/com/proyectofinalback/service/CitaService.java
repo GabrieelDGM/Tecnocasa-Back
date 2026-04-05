@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.proyectofinalback.dto.request.CitaRequestDto;
 import com.proyectofinalback.dto.response.CitaResponseDto;
+import com.proyectofinalback.entities.Empleados;
+import com.proyectofinalback.entities.TipoPropiedad;
 
 public interface CitaService {
 
