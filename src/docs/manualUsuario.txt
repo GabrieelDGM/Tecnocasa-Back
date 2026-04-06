@@ -1,0 +1,117 @@
+Manual de Usuario – Backend TecnoCasa
+
+Este manual explica de manera sencilla cómo funciona el sistema backend de TecnoCasa y cómo los usuarios pueden interactuar con él a través de la aplicación móvil. Está pensado para personal que necesite iniciar o usar la aplicación sin conocimientos técnicos.
+
+No se requieren conocimientos avanzados de informática para seguir este manual.
+
+El backend es el sistema encargado de:
+
+Guardar información de usuarios, empleados, propiedades y citas.
+Procesar las solicitudes que envía la aplicación móvil.
+Responder a la app para que los usuarios puedan ver datos o realizar acciones.
+
+El usuario no interactúa directamente con el backend, sino a través de la aplicación móvil.
+
+Cómo iniciar la aplicación backend
+
+Para que la aplicación móvil funcione correctamente, el backend debe estar en ejecución. A continuación se explica cómo iniciar el backend de manera sencilla:
+
+Abrir una terminal o consola en el equipo.
+
+Navegar hasta la carpeta del proyecto backend:
+cd C:/PruebaFinalProyecto/TecnoCasaBackend
+
+Instalar dependencias (solo la primera vez):
+npm install
+
+Iniciar el backend:
+mvn spring-boot:run
+
+IMPORNTANTE :La aplicación móvil debe estar conectada a la misma red y apuntar a esta dirección para que funcione correctamente.
+
+Usuarios del sistema
+
+El backend soporta tres tipos de usuarios:
+
+Administrador
+
+Puede:
+Editar información de propiedades.
+
+Gestor
+
+Puede:
+
+Ver citas asignadas.
+Confirmar citas.
+Cliente
+
+Puede:
+
+Ver propiedades.
+Solicitar citas.
+Acceder sin cuenta
+
+Cómo interactúa el usuario con el backend
+
+El usuario no accede directamente al backend, sino que utiliza la aplicación móvil. Las acciones se comunican automáticamente con el backend, por ejemplo:
+
+Iniciar sesión
+Visualizar propiedades
+Crear citas
+Confirmar o citas (gestores)
+Editar propiedades (administradores)
+
+El backend procesa estas acciones y envía la información de vuelta a la app.
+
+Recuperación de contraseña
+
+Si un usuario olvida su contraseña:
+
+En la pantalla de inicio de sesión de la app, pulsar “¿Olvidó Contraseña?”.
+La app mostrará un mensaje indicando:
+
+“Para recuperar su contraseña, contacte con soporte: soporte@tecnocasa.com
+”
+
+El equipo de soporte restablecerá la contraseña manualmente.
+
+No existe un sistema automático de recuperación.
+
+Soporte
+
+Para cualquier incidencia relacionada con:
+
+Acceso a la cuenta
+Recuperación de contraseña
+Problemas con citas
+Información incorrecta
+
+Contactar con:
+
+📧 soporte@tecnocasa.com
+
+Problemas comunes y soluciones
+
+No puedo iniciar sesión
+
+Qué significa: Usuario o contraseña incorrectos.
+Qué debe hacer el usuario: Revisar las credenciales o contactar con soporte.
+
+No carga información
+
+Qué significa: El backend podría estar apagado.
+Qué debe hacer el usuario: Iniciar el backend o esperar unos minutos antes de intentar nuevamente.
+
+No puedo crear una cita
+
+Qué significa: Datos incompletos en el formulario.
+Qué debe hacer el usuario: Asegurarse de completar todos los campos requeridos antes de enviar.
+
+No aparecen propiedades
+
+Qué significa: Problema temporal de conexión.
+Qué debe hacer el usuario: Verificar que la aplicación esté conectada correctamente al backend y volver a intentarlo.
+
+Autor
+Gabriel David Gelviz Monterrey

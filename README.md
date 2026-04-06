@@ -78,3 +78,4 @@ PUT	/api/citas/{id}/cancelar-Cancelar cita
 Gabriel David Gelviz Monterrey.
 
 
+[Manual de usuario](src/docs/manualUsuario.txt)
