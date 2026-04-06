@@ -114,4 +114,7 @@ Qué significa: Problema temporal de conexión.
 Qué debe hacer el usuario: Verificar que la aplicación esté conectada correctamente al backend y volver a intentarlo.
 
 Autor
-Gabriel David Gelviz Monterrey
+Gabriel David Gelviz Monterrey.
+
+
+[Volver al README](README.md)
