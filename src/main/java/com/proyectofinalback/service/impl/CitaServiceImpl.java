@@ -25,7 +25,7 @@ public class CitaServiceImpl implements CitaService {
 
     private final CitaRepository citaRepo;
     private final PropiedadesRepository propiedadesRepo;
-    private final EmpleadoRepository empleadoRepo;
+    private final EmpleadoRepository empleadoRepo;  
     private final UsuarioRepository usuarioRepo;
 
     @Override
