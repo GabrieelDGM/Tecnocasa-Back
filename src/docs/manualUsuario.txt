@@ -115,6 +115,3 @@ Qué debe hacer el usuario: Verificar que la aplicación esté conectada correct
 
 Autor
 Gabriel David Gelviz Monterrey.
-
-
-[Volver al README](README.md)
